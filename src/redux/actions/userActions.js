@@ -1,10 +1,12 @@
 import { API_ROOT } from '../../fetch/apiRoot';
 
+const setUserReq = () => ({ type: 'FETCH_SET_USER' });
 const setUser = (payload) => ({ type: 'SET_USER', payload });
 
 export const logUserOut = () => ({ type: 'LOG_OUT' });
 
 export const fetchUser = (userInfo) => (dispatch) => {
+  dispatch(setUserReq);
   fetch(`${API_ROOT}/login`, {
     method: 'POST',
     headers: {
@@ -37,6 +39,7 @@ export const signUserUp = (userInfo) => (dispatch) => {
 };
 
 export const autoLogin = () => (dispatch) => {
+  dispatch(setUserReq);
   fetch(`${API_ROOT}/auto_login`, {
     headers: {
       'Content-Type': 'application/json',

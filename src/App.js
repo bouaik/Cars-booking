@@ -15,22 +15,28 @@ const App = ({ userReducer, autoLogin }) => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Nav />
-        <Switch>
-          <Route exact path="/dashboard">
-            <Dashboard userReducer={userReducer} />
-          </Route>
-          <Route exact path="/">
-            <Home userReducer={userReducer} />
-          </Route>
-        </Switch>
+        {userReducer.loading ? (
+          <h1>Loading ...</h1>
+        ) : (
+          <div>
+            <Nav />
+            <Switch>
+              <Route exact path="/dashboard">
+                <Dashboard userReducer={userReducer} />
+              </Route>
+              <Route exact path="/">
+                <Home userReducer={userReducer} />
+              </Route>
+            </Switch>
+          </div>
+        )}
       </BrowserRouter>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.userReducer.user);
+  console.log(state.userReducer);
   return {
     userReducer: state.userReducer,
   };
