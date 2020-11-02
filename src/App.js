@@ -4,6 +4,7 @@ import { autoLogin } from './redux/actions/userActions';
 import { connect } from 'react-redux';
 import LoginComponent from './components/LoginComponent';
 import SignUpComponent from './components/SignUpComponent';
+import SignOut from './components/SignOut';
 
 const App = ({ userReducer, autoLogin }) => {
   useEffect(() => {
@@ -14,6 +15,7 @@ const App = ({ userReducer, autoLogin }) => {
     <div className="App">
       <SignUpComponent />
       <LoginComponent />
+      <SignOut />
     </div>
   );
 };
