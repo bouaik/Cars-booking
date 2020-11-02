@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
+import { autoLogin } from './redux/actions/userActions';
+import { connect } from 'react-redux';
 import LoginComponent from './components/LoginComponent';
 import SignUpComponent from './components/SignUpComponent';
 
-function App() {
+const App = ({ userReducer, autoLogin }) => {
+  useEffect(() => {
+    autoLogin();
+  }, []);
+
   return (
     <div className="App">
       <SignUpComponent />
       <LoginComponent />
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state.userReducer.user);
+  return {
+    userReducer: state.userReducer,
+  };
+};
+
+const mapDispatchToProps = {
+  autoLogin,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
