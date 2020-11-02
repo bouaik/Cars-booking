@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import './App.css';
 import { autoLogin } from './redux/actions/userActions';
 import { connect } from 'react-redux';
-import LoginComponent from './components/LoginComponent';
-import SignUpComponent from './components/SignUpComponent';
-import SignOut from './components/SignOut';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Dashboard from './components/Dashboard';
+import Nav from './components/Nav';
 
 const App = ({ userReducer, autoLogin }) => {
   useEffect(() => {
@@ -13,9 +14,17 @@ const App = ({ userReducer, autoLogin }) => {
 
   return (
     <div className="App">
-      <SignUpComponent />
-      <LoginComponent />
-      <SignOut />
+      <BrowserRouter>
+        <Nav />
+        <Switch>
+          <Route exact path="/dashboard">
+            <Dashboard userReducer={userReducer} />
+          </Route>
+          <Route exact path="/">
+            <Home userReducer={userReducer} />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };
