@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import Nav from './components/Nav';
 import { autoLogin } from './redux/actions/userActions';
 import { fetchCars } from './redux/actions/carActions';
+import Car from './components/Car';
 
 const App = ({ userReducer, autoLogin, fetchCars, carReducer }) => {
   useEffect(() => {
@@ -23,11 +24,14 @@ const App = ({ userReducer, autoLogin, fetchCars, carReducer }) => {
           <div>
             <Nav />
             <Switch>
+              <Route exact path="/">
+                <Home userReducer={userReducer} />
+              </Route>
               <Route exact path="/dashboard">
                 <Dashboard userReducer={userReducer} carReducer={carReducer} />
               </Route>
-              <Route exact path="/">
-                <Home userReducer={userReducer} />
+              <Route exact path="/car/:id">
+                <Car />
               </Route>
             </Switch>
           </div>

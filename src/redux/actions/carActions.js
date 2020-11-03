@@ -6,7 +6,27 @@ const fetchCarsRequest = (cars) => ({
 });
 
 export const fetchCars = () => (dispatch) => {
-  fetch(`${API_ROOT}/cars`)
+  fetch(`${API_ROOT}/cars`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch(fetchCarsRequest(data));
+    });
+};
+
+export const fetchCar = (id) => (dispatch) => {
+  fetch(`${API_ROOT}/cars/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
     .then((res) => res.json())
     .then((data) => {
       dispatch(fetchCarsRequest(data));
