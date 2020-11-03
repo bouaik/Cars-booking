@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { autoLogin } from './redux/actions/userActions';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import Nav from './components/Nav';
+import { autoLogin } from './redux/actions/userActions';
+import { fetchCars } from './redux/actions/carActions';
 
-const App = ({ userReducer, autoLogin }) => {
+const App = ({ userReducer, autoLogin, fetchCars }) => {
   useEffect(() => {
     autoLogin();
+    fetchCars();
   }, []);
 
   return (
@@ -36,7 +38,7 @@ const App = ({ userReducer, autoLogin }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.userReducer);
+  console.log(state);
   return {
     userReducer: state.userReducer,
   };
@@ -44,6 +46,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   autoLogin,
+  fetchCars,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

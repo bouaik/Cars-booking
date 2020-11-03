@@ -18,6 +18,7 @@ const userReducer = (state = defaultState, action) => {
     case 'LOG_OUT':
       localStorage.clear();
       return {
+        loading: false,
         user: {},
       };
     default:
