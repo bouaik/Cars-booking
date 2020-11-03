@@ -8,7 +8,7 @@ import Nav from './components/Nav';
 import { autoLogin } from './redux/actions/userActions';
 import { fetchCars } from './redux/actions/carActions';
 
-const App = ({ userReducer, autoLogin, fetchCars }) => {
+const App = ({ userReducer, autoLogin, fetchCars, carReducer }) => {
   useEffect(() => {
     autoLogin();
     fetchCars();
@@ -24,7 +24,7 @@ const App = ({ userReducer, autoLogin, fetchCars }) => {
             <Nav />
             <Switch>
               <Route exact path="/dashboard">
-                <Dashboard userReducer={userReducer} />
+                <Dashboard userReducer={userReducer} carReducer={carReducer} />
               </Route>
               <Route exact path="/">
                 <Home userReducer={userReducer} />
@@ -41,6 +41,7 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     userReducer: state.userReducer,
+    carReducer: state.carReducer,
   };
 };
 
