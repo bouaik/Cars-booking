@@ -8,7 +8,7 @@ import { fetchCars } from '../redux/actions/carActions';
 const Dashboard = ({ fetchCars, userReducer, carReducer }) => {
   useEffect(() => {
     fetchCars();
-  }, []);
+  }, [fetchCars]);
   return (
     <div>
       {userReducer.user.token ? (

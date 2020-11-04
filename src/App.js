@@ -12,7 +12,7 @@ import Appointements from './components/Appointements';
 const App = ({ userReducer, autoLogin }) => {
   useEffect(() => {
     autoLogin();
-  }, []);
+  }, [autoLogin]);
 
   return (
     <div className="App">

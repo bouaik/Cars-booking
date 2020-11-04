@@ -18,3 +18,19 @@ export const fetchAppointements = () => (dispatch) => {
       dispatch(fetchAppointementsRequest(data));
     });
 };
+
+export const bookAppointement = (appointementInfo) => (dispatch) => {
+  fetch(`${API_ROOT}/appointements`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+    body: JSON.stringify(appointementInfo),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch(fetchAppointementsRequest(data.user));
+    });
+};
