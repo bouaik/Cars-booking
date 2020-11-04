@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SignOut from './SignOut';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchCars } from '../redux/actions/carActions';
 
-const Dashboard = ({ userReducer, carReducer }) => {
+const Dashboard = ({ fetchCars, userReducer, carReducer }) => {
+  useEffect(() => {
+    fetchCars();
+  }, []);
   return (
     <div>
       {userReducer.user.token ? (
@@ -26,4 +31,15 @@ const Dashboard = ({ userReducer, carReducer }) => {
   );
 };
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+  console.log(state.carReducer);
+  return {
+    carReducer: state.carReducer,
+  };
+};
+
+const mapDispatchToProps = {
+  fetchCars,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

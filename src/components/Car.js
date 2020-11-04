@@ -8,13 +8,16 @@ const Car = ({ fetchCar, carReducer }) => {
 
   useEffect(() => {
     fetchCar(id);
-  }, [fetchCar]);
+  }, []);
 
   return (
     <div>
       <h1>Hello world!</h1>
       {carReducer.cars.map((car) => (
-        <h1 key={car.id}>{car.name}</h1>
+        <div key={car.id}>
+          <h1 key={car.id}>{car.name}</h1>
+          <img src={car.img_url} alt="car pic" />
+        </div>
       ))}
     </div>
   );

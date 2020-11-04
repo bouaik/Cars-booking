@@ -6,14 +6,12 @@ import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import Nav from './components/Nav';
 import { autoLogin } from './redux/actions/userActions';
-import { fetchCars } from './redux/actions/carActions';
 import Car from './components/Car';
 
-const App = ({ userReducer, autoLogin, fetchCars, carReducer }) => {
+const App = ({ userReducer, autoLogin }) => {
   useEffect(() => {
     autoLogin();
-    fetchCars();
-  }, [fetchCars]);
+  }, []);
 
   return (
     <div className="App">
@@ -28,7 +26,7 @@ const App = ({ userReducer, autoLogin, fetchCars, carReducer }) => {
                 <Home userReducer={userReducer} />
               </Route>
               <Route exact path="/dashboard">
-                <Dashboard userReducer={userReducer} carReducer={carReducer} />
+                <Dashboard userReducer={userReducer} />
               </Route>
               <Route exact path="/car/:id">
                 <Car />
@@ -42,16 +40,13 @@ const App = ({ userReducer, autoLogin, fetchCars, carReducer }) => {
 };
 
 const mapStateToProps = (state) => {
-  // console.log(state);
   return {
     userReducer: state.userReducer,
-    carReducer: state.carReducer,
   };
 };
 
 const mapDispatchToProps = {
   autoLogin,
-  fetchCars,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
