@@ -10,7 +10,7 @@ const Appointements = ({ fetchAppointements }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.appointementReducer.appointements[1]);
+  console.log(state.appointementReducer.appointements);
   return {
     appointementReducer: state.appointementReducer,
   };
