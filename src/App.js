@@ -13,7 +13,7 @@ const App = ({ userReducer, autoLogin, fetchCars, carReducer }) => {
   useEffect(() => {
     autoLogin();
     fetchCars();
-  }, []);
+  }, [fetchCars]);
 
   return (
     <div className="App">
@@ -42,7 +42,7 @@ const App = ({ userReducer, autoLogin, fetchCars, carReducer }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
   return {
     userReducer: state.userReducer,
     carReducer: state.carReducer,
