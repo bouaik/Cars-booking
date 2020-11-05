@@ -15,6 +15,7 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
+import Alert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 
 function Copyright() {
@@ -33,6 +34,12 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
+  },
+  alert: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
   },
   image: {
     backgroundImage:
@@ -110,6 +117,13 @@ const LoginComponent = ({ fetchUser, userReducer }) => {
               <Typography component="h1" variant="h5">
                 Sign in
               </Typography>
+
+              {userReducer.user.error ? (
+                <div className={classes.alert}>
+                  <Alert severity="error">{userReducer.user.error}</Alert>
+                </div>
+              ) : null}
+
               <form
                 className={classes.form}
                 noValidate
