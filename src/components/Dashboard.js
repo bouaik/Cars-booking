@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import SignOut from './SignOut';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -22,7 +21,6 @@ const Dashboard = ({ fetchCars, userReducer, carReducer }) => {
               <img src={car.img_url} alt="car pic" />
             </div>
           ))}
-          <SignOut />
         </div>
       ) : (
         <Redirect to="/" />
@@ -32,7 +30,6 @@ const Dashboard = ({ fetchCars, userReducer, carReducer }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.carReducer);
   return {
     carReducer: state.carReducer,
   };

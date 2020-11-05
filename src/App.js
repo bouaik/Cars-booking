@@ -8,6 +8,8 @@ import Nav from './components/Nav';
 import { autoLogin } from './redux/actions/userActions';
 import Car from './components/Car';
 import Appointements from './components/Appointements';
+import LoginComponent from './components/LoginComponent';
+import SignUpComponent from './components/SignUpComponent';
 
 const App = ({ userReducer, autoLogin }) => {
   useEffect(() => {
@@ -24,7 +26,10 @@ const App = ({ userReducer, autoLogin }) => {
             <Nav />
             <Switch>
               <Route exact path="/">
-                <Home userReducer={userReducer} />
+                <LoginComponent />
+              </Route>
+              <Route exact path="/signup">
+                <SignUpComponent userReducer={userReducer} />
               </Route>
               <Route exact path="/dashboard">
                 <Dashboard userReducer={userReducer} />

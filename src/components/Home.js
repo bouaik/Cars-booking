@@ -10,8 +10,6 @@ const Home = ({ userReducer }) => {
         <Redirect to="/dashboard" />
       ) : (
         <div>
-          <h1>Sign Up or Login!</h1>
-          {userReducer.user.error ? <h4>{userReducer.user.error}</h4> : null}
           <SignUpComponent />
           <LoginComponent />
         </div>

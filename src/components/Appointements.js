@@ -31,7 +31,6 @@ const Appointements = ({
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.appointementReducer.appointements);
   return {
     appointementReducer: state.appointementReducer,
     userReducer: state.userReducer,
