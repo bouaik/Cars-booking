@@ -11,6 +11,11 @@ const Appointements = ({
   useEffect(() => {
     fetchAppointements(username);
   }, [fetchAppointements, username]);
+
+  const hadnleTime = (a) => {
+    let time = new Date(a);
+    return `${time.getHours()}:${time.getUTCMinutes()}`;
+  };
   return (
     <div>
       My Appointements
@@ -18,7 +23,7 @@ const Appointements = ({
         <div key={appointement.id}>
           <h3>{appointement.city}</h3>
           <h4>{appointement.date}</h4>
-          <h4>{appointement.time}</h4>
+          <h4>{hadnleTime(appointement.time)}</h4>
         </div>
       ))}
     </div>
