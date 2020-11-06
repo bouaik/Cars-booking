@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
+import Nav from './components/Nav';
 import { autoLogin } from './redux/actions/userActions';
 import Car from './components/Car';
 import Appointements from './components/Appointements';
@@ -21,6 +22,7 @@ const App = ({ userReducer, autoLogin }) => {
           <h1>Loading ...</h1>
         ) : (
           <div>
+            {userReducer.user.token ? <Nav /> : null}
             <Switch>
               <Route exact path="/">
                 <LoginComponent />

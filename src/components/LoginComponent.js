@@ -191,7 +191,6 @@ const LoginComponent = ({ fetchUser, userReducer }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.userReducer);
   return {
     userReducer: state.userReducer,
   };
