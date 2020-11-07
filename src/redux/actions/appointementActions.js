@@ -33,6 +33,7 @@ export const bookAppointement = (appointementInfo) => (dispatch) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      dispatch(fetchAppointementsRequest(data.user));
+      console.log(data);
+      dispatch(fetchAppointementsRequest(data));
     });
 };

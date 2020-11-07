@@ -7,7 +7,13 @@ import { bookAppointement } from '../redux/actions/appointementActions';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 
-const Car = ({ fetchCar, carReducer, userReducer, bookAppointement }) => {
+const Car = ({
+  fetchCar,
+  carReducer,
+  userReducer,
+  bookAppointement,
+  appointementReducer,
+}) => {
   const { id } = useParams();
 
   useEffect(() => {
@@ -37,10 +43,12 @@ const Car = ({ fetchCar, carReducer, userReducer, bookAppointement }) => {
                 <span>Duration:</span> {car.duration}
               </h3>
             </div>
+
             <AppointementForm
               username={username}
               bookAppointement={bookAppointement}
               carId={id}
+              appointementReducer={appointementReducer}
             />
           </Grid>
         </Grid>
@@ -50,10 +58,11 @@ const Car = ({ fetchCar, carReducer, userReducer, bookAppointement }) => {
 };
 
 const mapStateToProps = (state) => {
-  // console.log(state.appointementReducer);
+  console.log(state.appointementReducer);
   return {
     carReducer: state.carReducer,
     userReducer: state.userReducer,
+    appointementReducer: state.appointementReducer,
   };
 };
 

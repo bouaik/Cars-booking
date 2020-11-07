@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
+import Alert from '@material-ui/lab/Alert';
 
-const AppointementForm = ({ username, bookAppointement, carId }) => {
+const AppointementForm = ({
+  username,
+  bookAppointement,
+  carId,
+  appointementReducer,
+}) => {
   const appData = {
     city: '',
     date: '',
@@ -18,12 +24,17 @@ const AppointementForm = ({ username, bookAppointement, carId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(appoiInfo);
     bookAppointement(appoiInfo);
   };
 
   return (
-    <div className="car_container">
+    <div className="appointement_container">
+      {appointementReducer.appointements.message ? (
+        <Alert severity="success">
+          {appointementReducer.appointements.message}
+        </Alert>
+      ) : null}
+
       <h3 className="appointement_title">Take appointement</h3>
 
       <form onSubmit={handleSubmit}>
