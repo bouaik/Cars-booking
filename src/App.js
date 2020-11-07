@@ -28,7 +28,7 @@ const App = ({ userReducer, autoLogin }) => {
                 <LoginComponent />
               </Route>
               <Route exact path="/signup">
-                <SignUpComponent userReducer={userReducer} />
+                <SignUpComponent />
               </Route>
               <Route exact path="/dashboard">
                 <Dashboard userReducer={userReducer} />
