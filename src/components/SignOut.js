@@ -9,7 +9,7 @@ const SignOut = ({ logUserOut }) => {
   };
 
   return (
-    <div>
+    <div className="signout_cover">
       <input type="submit" value="Sign out" onClick={handleOnClick} />
     </div>
   );

@@ -68,4 +68,24 @@
 
 .sidebar .menu_items.active {
   background-color: rgb(19, 204, 19);
+  color: #fff;
+}
+
+.sidebar .signout_cover input {
+  display: flex;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgb(19, 204, 19);
+  font-size: 20px;
+  margin: 50px 10px;
+  width: 95%;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: 900;
+  padding: 10px;
+}
+
+.sidebar .signout_cover input:hover {
+  background-color: rgb(19, 204, 19);
+  color: #fff;
 }
