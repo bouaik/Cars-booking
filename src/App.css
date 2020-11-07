@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,18 +8,44 @@
 
 .togller_cover {
   position: relative;
-  left: 110px;
+  left: 200px;
   top: 70vh;
+  background-color: rgb(19, 204, 19);
+  width: 50px;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 0 40% 40% 0;
 }
 
 .sidebar {
-  background-color: #999;
+  background-color: #fff;
+  width: 200px;
   position: fixed;
   height: 100vh;
   top: 0;
-  left: -120px;
+  left: -200px;
   z-index: 1;
   transition: 1s;
+  border-right: 1px solid rgba(153, 153, 153, 0.205);
+}
+
+.sidebar a {
+  text-decoration: none;
+  display: block;
+  margin-left: 10px;
+}
+
+.sidebar .logo {
+  color: rgb(102, 102, 102);
+  font-size: 50px;
+  position: relative;
+  top: -40px;
+  font-family: 'Lobster', cursive;
+  left: 10px;
+}
+
+.sidebar .logo:hover {
+  color: #000;
 }
 
 .sidebar.active {
@@ -25,6 +53,19 @@
   z-index: 1;
 }
 
-.arrow {
+.sidebar .arrow {
   font-size: 3rem !important;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sidebar .menu_items {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #000;
+  padding: 10px;
+}
+
+.sidebar .menu_items.active {
+  background-color: rgb(19, 204, 19);
 }
