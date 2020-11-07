@@ -18,8 +18,8 @@ const Dashboard = ({ fetchCars, userReducer, carReducer }) => {
   return (
     <div>
       {userReducer.user.token ? (
-        <Container>
-          <h1>Welcome, {userReducer.user.user.username}</h1>
+        <Container className="dashboard_cover">
+          <h1 className="welcome">Welcome, {userReducer.user.user.username}</h1>
           <GridList cols={2} spacing={10} cellHeight={300}>
             {carReducer.cars.map((car) => (
               <GridListTile key={car.id}>

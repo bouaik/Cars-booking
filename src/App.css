@@ -89,3 +89,12 @@
   background-color: rgb(19, 204, 19);
   color: #fff;
 }
+
+/* Dashboard */
+.dashboard_cover a {
+  color: #fff;
+}
+.dashboard_cover .welcome {
+  margin: 40px 0;
+  text-align: center;
+}
