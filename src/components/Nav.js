@@ -17,13 +17,13 @@ const Nav = () => {
       <div className="togller_cover">
         <ArrowLeftTwoToneIcon onClick={handleSidebar} className="arrow" />
       </div>
-      <Link to="/">
+      <Link onClick={handleSidebar} to="/">
         <h4 className="logo">Elcaro</h4>
       </Link>
-      <Link to="/">
+      <Link onClick={handleSidebar} to="/">
         <h4 className="menu_items active">Cars</h4>
       </Link>
-      <Link to="/appointements">
+      <Link onClick={handleSidebar} to="/appointements">
         <h4 className="menu_items active">Appointements</h4>
       </Link>
       <SignOut />
