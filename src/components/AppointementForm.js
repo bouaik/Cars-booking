@@ -24,7 +24,7 @@ const AppointementForm = ({ username, bookAppointement, carId }) => {
 
   return (
     <div className="car_container">
-      <h3>Take appointement</h3>
+      <h3 className="appointement_title">Take appointement</h3>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -38,7 +38,7 @@ const AppointementForm = ({ username, bookAppointement, carId }) => {
         <br />
         <input type="time" name="time" onChange={handleChange} />
         <br />
-        <input type="submit" value="Book" />
+        <input type="submit" className="submit_btn" />
       </form>
     </div>
   );

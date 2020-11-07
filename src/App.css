@@ -141,5 +141,28 @@
 /* AppointomentFrom */
 
 .car_container {
-  margin-top: 30px;
+  margin-top: 50px;
+}
+.car_container .appointement_title {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.car_container form input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 7px;
+}
+.car_container .submit_btn {
+  background-color: rgb(19, 204, 19);
+  border: none;
+  outline: none;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.car_container .submit_btn:hover {
+  background-color: rgb(12, 138, 12);
 }

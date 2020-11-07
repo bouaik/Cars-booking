@@ -27,7 +27,7 @@ const Car = ({ fetchCar, carReducer, userReducer, bookAppointement }) => {
             <h1 className="car_name">{car.name}</h1>
             <div className="car_info">
               <h3>
-                <span>Price:</span> {car.price}
+                <span>Price:</span> {car.price}$
               </h3>
               <h3>
                 <span>Transmition: </span>
