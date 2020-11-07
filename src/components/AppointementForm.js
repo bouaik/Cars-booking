@@ -23,7 +23,9 @@ const AppointementForm = ({ username, bookAppointement, carId }) => {
   };
 
   return (
-    <div>
+    <div className="car_container">
+      <h3>Take appointement</h3>
+
       <form onSubmit={handleSubmit}>
         <input
           placeholder="City"
@@ -31,8 +33,11 @@ const AppointementForm = ({ username, bookAppointement, carId }) => {
           name="city"
           onChange={handleChange}
         />
+        <br />
         <input type="date" name="date" onChange={handleChange} />
+        <br />
         <input type="time" name="time" onChange={handleChange} />
+        <br />
         <input type="submit" value="Book" />
       </form>
     </div>

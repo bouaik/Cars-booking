@@ -105,3 +105,41 @@
   margin: 40px 0;
   text-align: center;
 }
+
+/* Car */
+
+.img {
+  width: 100%;
+}
+.car_cover {
+  margin-top: 40px;
+}
+.car_container {
+  height: 80vh;
+}
+
+.car_name {
+  text-align: right;
+  margin-right: 30px;
+  text-transform: capitalize;
+}
+
+.car_info {
+  margin-top: 20px;
+}
+
+.car_info h3 {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.car_info h3:nth-child(odd) {
+  background-color: #ddd;
+}
+
+/* AppointomentFrom */
+
+.car_container {
+  margin-top: 30px;
+}
