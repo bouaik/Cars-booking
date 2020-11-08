@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchCar } from '../redux/actions/carActions';
-import AppointementForm from './AppointementForm';
+import AppointementForm from '../components/AppointementForm';
 import { bookAppointement } from '../redux/actions/appointementActions';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';

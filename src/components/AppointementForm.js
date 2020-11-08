@@ -34,9 +34,7 @@ const AppointementForm = ({
           {appointementReducer.appointements.message}
         </Alert>
       ) : null}
-
       <h3 className="appointement_title">Take appointement</h3>
-
       <form onSubmit={handleSubmit}>
         <input
           placeholder="City"

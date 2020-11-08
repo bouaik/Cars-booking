@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
-import Nav from './components/Nav';
+import Dashboard from './containers/Dashboard';
+import Nav from './containers/Nav';
 import { autoLogin } from './redux/actions/userActions';
-import Car from './components/Car';
-import Appointements from './components/Appointements';
-import LoginComponent from './components/LoginComponent';
-import SignUpComponent from './components/SignUpComponent';
+import Car from './containers/Car';
+import Appointements from './containers/Appointements';
+import LoginComponent from './containers/LoginComponent';
+import SignUpComponent from './containers/SignUpComponent';
 
 const App = ({ userReducer, autoLogin }) => {
   useEffect(() => {
