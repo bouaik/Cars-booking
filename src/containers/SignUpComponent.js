@@ -17,6 +17,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Alert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 function Copyright() {
   return (
@@ -198,6 +199,15 @@ const SignUpComponent = ({ signUserUp, userReducer }) => {
       )}
     </div>
   );
+};
+
+SignUpComponent.propTypes = {
+  userReducer: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    user: PropTypes.object.isRequired,
+  }).isRequired,
+
+  signUserUp: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => {
   return {

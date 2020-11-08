@@ -6,6 +6,7 @@ import AppointementForm from '../components/AppointementForm';
 import { bookAppointement } from '../redux/actions/appointementActions';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import PropTypes from 'prop-types';
 
 const Car = ({
   fetchCar,
@@ -57,8 +58,21 @@ const Car = ({
   );
 };
 
+Car.propTypes = {
+  carReducer: PropTypes.shape({
+    cars: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
+  userReducer: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    user: PropTypes.object.isRequired,
+  }).isRequired,
+  appointementReducer: PropTypes.object.isRequired,
+
+  fetchCar: PropTypes.func.isRequired,
+  bookAppointement: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = (state) => {
-  console.log(state.appointementReducer);
   return {
     carReducer: state.carReducer,
     userReducer: state.userReducer,

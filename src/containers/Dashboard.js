@@ -9,6 +9,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Container from '@material-ui/core/Container';
+import PropTypes from 'prop-types';
 
 const Dashboard = ({ fetchCars, userReducer, carReducer }) => {
   useEffect(() => {
@@ -45,6 +46,17 @@ const Dashboard = ({ fetchCars, userReducer, carReducer }) => {
       )}
     </div>
   );
+};
+
+Dashboard.propTypes = {
+  carReducer: PropTypes.shape({
+    cars: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
+  userReducer: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    user: PropTypes.object.isRequired,
+  }).isRequired,
+  fetchCars: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {

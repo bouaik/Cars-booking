@@ -9,6 +9,7 @@ import Car from './containers/Car';
 import Appointements from './containers/Appointements';
 import LoginComponent from './containers/LoginComponent';
 import SignUpComponent from './containers/SignUpComponent';
+import PropTypes from 'prop-types';
 
 const App = ({ userReducer, autoLogin }) => {
   useEffect(() => {
@@ -45,6 +46,14 @@ const App = ({ userReducer, autoLogin }) => {
       </BrowserRouter>
     </div>
   );
+};
+
+App.propTypes = {
+  userReducer: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    user: PropTypes.object.isRequired,
+  }).isRequired,
+  autoLogin: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {

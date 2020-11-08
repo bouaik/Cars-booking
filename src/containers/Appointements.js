@@ -10,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
   table: {
@@ -62,6 +63,15 @@ const Appointements = ({
       </TableContainer>
     </Container>
   );
+};
+
+Appointements.propTypes = {
+  userReducer: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    user: PropTypes.object.isRequired,
+  }).isRequired,
+  appointementReducer: PropTypes.object.isRequired,
+  fetchAppointements: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {

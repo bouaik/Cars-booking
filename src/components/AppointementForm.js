@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Alert from '@material-ui/lab/Alert';
+import PropTypes from 'prop-types';
 
 const AppointementForm = ({
   username,
@@ -51,6 +52,13 @@ const AppointementForm = ({
       </form>
     </div>
   );
+};
+
+AppointementForm.propTypes = {
+  username: PropTypes.string.isRequired,
+  carId: PropTypes.string.isRequired,
+  bookAppointement: PropTypes.func.isRequired,
+  appointementReducer: PropTypes.object.isRequired,
 };
 
 export default AppointementForm;
