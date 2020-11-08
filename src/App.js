@@ -57,7 +57,7 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.userReducer);
+  // console.log(state.userReducer);
   return {
     userReducer: state.userReducer,
   };

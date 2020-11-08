@@ -35,6 +35,11 @@ const AppointementForm = ({
           {appointementReducer.appointements.message}
         </Alert>
       ) : null}
+      {appointementReducer.appointements.error ? (
+        <Alert severity="error">
+          {appointementReducer.appointements.error}
+        </Alert>
+      ) : null}
       <h3 className="appointement_title">Take appointement</h3>
       <form onSubmit={handleSubmit}>
         <input
