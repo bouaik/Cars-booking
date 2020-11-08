@@ -6,6 +6,7 @@ import AppointementForm from '../components/AppointementForm';
 import { bookAppointement } from '../redux/actions/appointementActions';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 
 const Car = ({
@@ -21,40 +22,44 @@ const Car = ({
     fetchCar(id);
   }, [fetchCar, id]);
 
-  const username = userReducer.user.user.username;
-
   return (
-    <Container className="car_cover">
-      {carReducer.cars.map((car) => (
-        <Grid container key={car.id} spacing={2} className="car_container">
-          <Grid item sm={8}>
-            <img src={car.img_url} alt="car pic" className="img" />
-          </Grid>
-          <Grid item sm={4}>
-            <h1 className="car_name">{car.name}</h1>
-            <div className="car_info">
-              <h3>
-                <span>Price:</span> {car.price}$
-              </h3>
-              <h3>
-                <span>Transmition: </span>
-                {car.transmition}
-              </h3>
-              <h3>
-                <span>Duration:</span> {car.duration}
-              </h3>
-            </div>
+    <div>
+      {userReducer.user.token ? (
+        <Container className="car_cover">
+          {carReducer.cars.map((car) => (
+            <Grid container key={car.id} spacing={2} className="car_container">
+              <Grid item sm={8}>
+                <img src={car.img_url} alt="car pic" className="img" />
+              </Grid>
+              <Grid item sm={4}>
+                <h1 className="car_name">{car.name}</h1>
+                <div className="car_info">
+                  <h3>
+                    <span>Price:</span> {car.price}$
+                  </h3>
+                  <h3>
+                    <span>Transmition: </span>
+                    {car.transmition}
+                  </h3>
+                  <h3>
+                    <span>Duration:</span> {car.duration}
+                  </h3>
+                </div>
 
-            <AppointementForm
-              username={username}
-              bookAppointement={bookAppointement}
-              carId={id}
-              appointementReducer={appointementReducer}
-            />
-          </Grid>
-        </Grid>
-      ))}
-    </Container>
+                <AppointementForm
+                  username={userReducer.user.user.username}
+                  bookAppointement={bookAppointement}
+                  carId={id}
+                  appointementReducer={appointementReducer}
+                />
+              </Grid>
+            </Grid>
+          ))}
+        </Container>
+      ) : (
+        <Redirect to="/" />
+      )}
+    </div>
   );
 };
 

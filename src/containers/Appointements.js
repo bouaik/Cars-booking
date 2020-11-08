@@ -10,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
+import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
@@ -23,7 +24,10 @@ const Appointements = ({
   userReducer,
   appointementReducer,
 }) => {
-  const username = userReducer.user.user.username;
+  let username = '';
+  if (userReducer.user.user) {
+    username = userReducer.user.user.username;
+  }
   const classes = useStyles();
 
   useEffect(() => {
@@ -35,33 +39,39 @@ const Appointements = ({
     return `${time.getHours()}h:${time.getUTCMinutes()}`;
   };
   return (
-    <Container>
-      <h1 className="appointements">My appointements</h1>
-      <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>City</TableCell>
-              <TableCell align="right">Date</TableCell>
-              <TableCell align="right">Time</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {appointementReducer.appointements.map((appointement) => (
-              <TableRow key={appointement.id}>
-                <TableCell component="th" scope="row">
-                  {appointement.city}
-                </TableCell>
-                <TableCell align="right">{appointement.date}</TableCell>
-                <TableCell align="right">
-                  {hadnleTime(appointement.time)}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Container>
+    <div>
+      {userReducer.user.token ? (
+        <Container>
+          <h1 className="appointements">My appointements</h1>
+          <TableContainer component={Paper}>
+            <Table className={classes.table} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>City</TableCell>
+                  <TableCell align="right">Date</TableCell>
+                  <TableCell align="right">Time</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {appointementReducer.appointements.map((appointement) => (
+                  <TableRow key={appointement.id}>
+                    <TableCell component="th" scope="row">
+                      {appointement.city}
+                    </TableCell>
+                    <TableCell align="right">{appointement.date}</TableCell>
+                    <TableCell align="right">
+                      {hadnleTime(appointement.time)}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Container>
+      ) : (
+        <Redirect to="/" />
+      )}
+    </div>
   );
 };
 
@@ -75,7 +85,6 @@ Appointements.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.appointementReducer);
   return {
     appointementReducer: state.appointementReducer,
     userReducer: state.userReducer,
