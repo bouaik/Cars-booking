@@ -98,7 +98,7 @@ const SignUpComponent = ({ signUserUp, userReducer }) => {
 
   return (
     <div>
-      {userReducer.user.username ? (
+      {userReducer.user.token ? (
         <Redirect to="/dashboard" />
       ) : (
         <Grid container component="main" className={classes.root}>
@@ -138,6 +138,7 @@ const SignUpComponent = ({ signUserUp, userReducer }) => {
                   required
                   fullWidth
                   id="username"
+                  type="text"
                   label="Username"
                   name="username"
                   autoComplete="username"
@@ -152,6 +153,7 @@ const SignUpComponent = ({ signUserUp, userReducer }) => {
                   id="email"
                   label="Email"
                   name="email"
+                  type="email"
                   autoComplete="email"
                   autoFocus
                   onChange={handleOnChange}

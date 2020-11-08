@@ -2,15 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SignOut from './SignOut';
 import ArrowLeftTwoToneIcon from '@material-ui/icons/ArrowLeftTwoTone';
-// import { useLocation } from 'react-router-dom';
 
 const Nav = () => {
   const [sidebar, setSidebar] = useState(false);
 
   const handleSidebar = () => setSidebar(!sidebar);
-
-  // const location = useLocation();
-  // console.log(location.pathname);
 
   return (
     <div className={sidebar ? 'sidebar active' : 'sidebar'}>

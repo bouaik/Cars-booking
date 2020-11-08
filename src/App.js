@@ -23,7 +23,7 @@ const App = ({ userReducer, autoLogin }) => {
           <h1>Loading ...</h1>
         ) : (
           <div>
-            {userReducer.user.token ? <Nav /> : null}
+            {userReducer.user && userReducer.user.token ? <Nav /> : null}
             <Switch>
               <Route exact path="/">
                 <LoginComponent />
@@ -57,6 +57,7 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => {
+  console.log(state.userReducer);
   return {
     userReducer: state.userReducer,
   };

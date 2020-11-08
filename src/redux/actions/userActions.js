@@ -31,8 +31,9 @@ export const signUserUp = (userInfo) => (dispatch) => {
   })
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       localStorage.setItem('token', data.token);
-      dispatch(setUser(data.user));
+      dispatch(setUser(data));
     });
 };
 
