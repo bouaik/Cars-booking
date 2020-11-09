@@ -73,7 +73,7 @@ AppointementForm.propTypes = {
   username: PropTypes.string.isRequired,
   carId: PropTypes.string.isRequired,
   bookAppointement: PropTypes.func.isRequired,
-  appointementReducer: PropTypes.objectOf(PropTypes.object()).isRequired,
+  appointementReducer: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 export default AppointementForm;

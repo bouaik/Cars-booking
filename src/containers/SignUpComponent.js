@@ -207,7 +207,7 @@ const SignUpComponent = ({ signUserUp, userReducer }) => {
 SignUpComponent.propTypes = {
   userReducer: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    user: PropTypes.objectOf(PropTypes.object()).isRequired,
+    user: PropTypes.oneOfType([PropTypes.object]).isRequired,
   }).isRequired,
 
   signUserUp: PropTypes.func.isRequired,

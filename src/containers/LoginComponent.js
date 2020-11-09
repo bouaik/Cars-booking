@@ -195,7 +195,7 @@ const LoginComponent = ({ fetchUser, userReducer }) => {
 LoginComponent.propTypes = {
   userReducer: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    user: PropTypes.objectOf(PropTypes.object()).isRequired,
+    user: PropTypes.oneOfType([PropTypes.object]).isRequired,
   }).isRequired,
 
   fetchUser: PropTypes.func.isRequired,

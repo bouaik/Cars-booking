@@ -26,19 +26,19 @@ const Dashboard = ({ fetchCars, userReducer, carReducer }) => {
           </h1>
           <h2 className="welcome">Latest Models</h2>
           <GridList cols={2} spacing={10} cellHeight={300}>
-            {carReducer.cars.map((car) => (
+            {carReducer.cars.map(car => (
               <GridListTile key={car.id}>
                 <img src={car.img_url} alt="car pic" />
                 <GridListTileBar
                   title={car.name}
                   subtitle={<span>by: Lhoussaine</span>}
-                  actionIcon={
+                  actionIcon={(
                     <IconButton aria-label="info about Lhoussiane">
                       <Link to={`/car/${car.id}`}>
                         <ArrowForwardIosIcon />
                       </Link>
                     </IconButton>
-                  }
+                  )}
                 />
               </GridListTile>
             ))}
@@ -57,12 +57,12 @@ Dashboard.propTypes = {
   }).isRequired,
   userReducer: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    user: PropTypes.object.isRequired,
+    user: PropTypes.oneOfType([PropTypes.object]).isRequired,
   }).isRequired,
   fetchCars: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   carReducer: state.carReducer,
 });
 

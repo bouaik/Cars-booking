@@ -74,9 +74,9 @@ Car.propTypes = {
   }).isRequired,
   userReducer: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    user: PropTypes.objectOf(PropTypes.object()).isRequired,
+    user: PropTypes.oneOfType([PropTypes.object]).isRequired,
   }).isRequired,
-  appointementReducer: PropTypes.objectOf(PropTypes.object()).isRequired,
+  appointementReducer: PropTypes.oneOfType([PropTypes.object]).isRequired,
 
   fetchCar: PropTypes.func.isRequired,
   bookAppointement: PropTypes.func.isRequired,
