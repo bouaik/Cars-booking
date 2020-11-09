@@ -1,27 +1,27 @@
-import { API_ROOT } from '../../fetch/apiRoot';
 import axios from 'axios';
+import API_ROOT from '../../fetch/apiRoot';
 
-const fetchAppointementsRequest = (appointements) => ({
+const fetchAppointementsRequest = appointements => ({
   type: 'FETCH_APPOINTEMENTS',
   payload: appointements,
 });
 
-export const fetchAppointements = (username) => (dispatch) => {
+export const fetchAppointements = username => dispatch => {
   axios
     .get(`${API_ROOT}/appointements`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       params: {
-        username: username,
+        username,
       },
     })
-    .then((data) => {
+    .then(data => {
       dispatch(fetchAppointementsRequest(data.data));
     });
 };
 
-export const bookAppointement = (appointementInfo) => (dispatch) => {
+export const bookAppointement = appointementInfo => dispatch => {
   fetch(`${API_ROOT}/appointements`, {
     method: 'POST',
     headers: {
@@ -31,8 +31,8 @@ export const bookAppointement = (appointementInfo) => (dispatch) => {
     },
     body: JSON.stringify(appointementInfo),
   })
-    .then((res) => res.json())
-    .then((data) => {
+    .then(res => res.json())
+    .then(data => {
       dispatch(fetchAppointementsRequest(data));
     });
 };

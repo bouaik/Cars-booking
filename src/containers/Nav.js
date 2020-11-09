@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SignOut from './SignOut';
 import ArrowLeftTwoToneIcon from '@material-ui/icons/ArrowLeftTwoTone';
+import SignOut from './SignOut';
 
 const Nav = () => {
   const [sidebar, setSidebar] = useState(false);

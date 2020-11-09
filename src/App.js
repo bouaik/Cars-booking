@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Dashboard from './containers/Dashboard';
 import Nav from './containers/Nav';
 import { autoLogin } from './redux/actions/userActions';
@@ -9,7 +10,6 @@ import Car from './containers/Car';
 import Appointements from './containers/Appointements';
 import LoginComponent from './containers/LoginComponent';
 import SignUpComponent from './containers/SignUpComponent';
-import PropTypes from 'prop-types';
 import CircularIndeterminate from './components/Loading';
 
 const App = ({ userReducer, autoLogin }) => {
@@ -52,16 +52,14 @@ const App = ({ userReducer, autoLogin }) => {
 App.propTypes = {
   userReducer: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    user: PropTypes.object.isRequired,
+    user: PropTypes.objectOf(PropTypes.object()).isRequired,
   }).isRequired,
   autoLogin: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    userReducer: state.userReducer,
-  };
-};
+const mapStateToProps = state => ({
+  userReducer: state.userReducer,
+});
 
 const mapDispatchToProps = {
   autoLogin,

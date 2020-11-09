@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logUserOut } from '../redux/actions/userActions';
 import PropTypes from 'prop-types';
+import { logUserOut } from '../redux/actions/userActions';
 
 const SignOut = ({ logUserOut }) => {
-  const handleOnClick = (e) => {
+  const handleOnClick = e => {
     e.preventDefault();
     logUserOut();
   };
@@ -20,10 +20,8 @@ SignOut.propTypes = {
   logUserOut: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    logUserOut: () => dispatch(logUserOut()),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  logUserOut: () => dispatch(logUserOut()),
+});
 
 export default connect(null, mapDispatchToProps)(SignOut);

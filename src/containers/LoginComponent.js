@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { fetchUser } from '../redux/actions/userActions';
 import { Link as RouterLink } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -18,6 +17,7 @@ import Typography from '@material-ui/core/Typography';
 import Alert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import { fetchUser } from '../redux/actions/userActions';
 
 function Copyright() {
   return (
@@ -25,14 +25,15 @@ function Copyright() {
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
-      </Link>{' '}
+      </Link>
+      {' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
   );
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     height: '100vh',
   },
@@ -78,12 +79,12 @@ const LoginComponent = ({ fetchUser, userReducer }) => {
     password: '',
   });
 
-  const handleOnChange = (e) => {
+  const handleOnChange = e => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = e => {
     e.preventDefault();
     fetchUser(user);
     setUser({
@@ -169,13 +170,13 @@ const LoginComponent = ({ fetchUser, userReducer }) => {
                 </Button>
                 <Grid container>
                   <Grid item xs>
-                    <Link href="#" variant="body2">
+                    <Link href="/" variant="body2">
                       Forgot password?
                     </Link>
                   </Grid>
                   <Grid item>
                     <Link component={RouterLink} to="/signup" variant="body2">
-                      {"Don't have an account? Sign Up"}
+                      Dont have an account? Sign Up
                     </Link>
                   </Grid>
                 </Grid>
@@ -194,22 +195,18 @@ const LoginComponent = ({ fetchUser, userReducer }) => {
 LoginComponent.propTypes = {
   userReducer: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    user: PropTypes.object.isRequired,
+    user: PropTypes.objectOf(PropTypes.object()).isRequired,
   }).isRequired,
 
   fetchUser: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    userReducer: state.userReducer,
-  };
-};
+const mapStateToProps = state => ({
+  userReducer: state.userReducer,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchUser: (userInfo) => dispatch(fetchUser(userInfo)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  fetchUser: userInfo => dispatch(fetchUser(userInfo)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);

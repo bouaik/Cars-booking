@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchCars } from '../redux/actions/carActions';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -10,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Container from '@material-ui/core/Container';
 import PropTypes from 'prop-types';
+import { fetchCars } from '../redux/actions/carActions';
 
 const Dashboard = ({ fetchCars, userReducer, carReducer }) => {
   useEffect(() => {
@@ -20,22 +20,25 @@ const Dashboard = ({ fetchCars, userReducer, carReducer }) => {
     <div>
       {userReducer.user.token ? (
         <Container className="dashboard_cover">
-          <h1 className="welcome">Welcome, {userReducer.user.user.username}</h1>
+          <h1 className="welcome">
+            Welcome,
+            {userReducer.user.user.username}
+          </h1>
           <h2 className="welcome">Latest Models</h2>
           <GridList cols={2} spacing={10} cellHeight={300}>
-            {carReducer.cars.map((car) => (
+            {carReducer.cars.map(car => (
               <GridListTile key={car.id}>
                 <img src={car.img_url} alt="car pic" />
                 <GridListTileBar
                   title={car.name}
-                  subtitle={<span>by: 'Lhoussaine'</span>}
-                  actionIcon={
-                    <IconButton aria-label={`info about Lhoussiane`}>
+                  subtitle={<span>by: Lhoussaine</span>}
+                  actionIcon={(
+                    <IconButton aria-label="info about Lhoussiane">
                       <Link to={`/car/${car.id}`}>
                         <ArrowForwardIosIcon />
                       </Link>
                     </IconButton>
-                  }
+                  )}
                 />
               </GridListTile>
             ))}
@@ -54,16 +57,14 @@ Dashboard.propTypes = {
   }).isRequired,
   userReducer: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    user: PropTypes.object.isRequired,
+    user: PropTypes.objectOf(PropTypes.object()).isRequired,
   }).isRequired,
   fetchCars: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    carReducer: state.carReducer,
-  };
-};
+const mapStateToProps = state => ({
+  carReducer: state.carReducer,
+});
 
 const mapDispatchToProps = {
   fetchCars,

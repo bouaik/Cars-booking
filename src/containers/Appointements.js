@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchAppointements } from '../redux/actions/appointementActions';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,6 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
+import { fetchAppointements } from '../redux/actions/appointementActions';
 
 const useStyles = makeStyles({
   table: {
@@ -34,8 +34,8 @@ const Appointements = ({
     fetchAppointements(username);
   }, [fetchAppointements, username]);
 
-  const hadnleTime = (a) => {
-    let time = new Date(a);
+  const hadnleTime = a => {
+    const time = new Date(a);
     return `${time.getHours()}h:${time.getUTCMinutes()}`;
   };
   return (
@@ -53,7 +53,7 @@ const Appointements = ({
                 </TableRow>
               </TableHead>
               <TableBody>
-                {appointementReducer.appointements.map((appointement) => (
+                {appointementReducer.appointements.map(appointement => (
                   <TableRow key={appointement.id}>
                     <TableCell component="th" scope="row">
                       {appointement.city}
@@ -78,18 +78,16 @@ const Appointements = ({
 Appointements.propTypes = {
   userReducer: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    user: PropTypes.object.isRequired,
+    user: PropTypes.objectOf(PropTypes.object()).isRequired,
   }).isRequired,
-  appointementReducer: PropTypes.object.isRequired,
+  appointementReducer: PropTypes.objectOf(PropTypes.object()).isRequired,
   fetchAppointements: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    appointementReducer: state.appointementReducer,
-    userReducer: state.userReducer,
-  };
-};
+const mapStateToProps = state => ({
+  appointementReducer: state.appointementReducer,
+  userReducer: state.userReducer,
+});
 
 const mapDispatchToProps = {
   fetchAppointements,

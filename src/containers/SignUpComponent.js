@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { signUserUp } from '../redux/actions/userActions';
 import { Redirect } from 'react-router';
 import { Link as RouterLink } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
@@ -18,6 +17,7 @@ import Typography from '@material-ui/core/Typography';
 import Alert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import { signUserUp } from '../redux/actions/userActions';
 
 function Copyright() {
   return (
@@ -25,14 +25,15 @@ function Copyright() {
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
-      </Link>{' '}
+      </Link>
+      {' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
   );
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     height: '100vh',
   },
@@ -79,12 +80,12 @@ const SignUpComponent = ({ signUserUp, userReducer }) => {
     password: '',
   });
 
-  const handleOnChange = (e) => {
+  const handleOnChange = e => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = e => {
     e.preventDefault();
     signUserUp(user);
     setUser({
@@ -184,7 +185,7 @@ const SignUpComponent = ({ signUserUp, userReducer }) => {
                   Sign Up
                 </Button>
                 <Grid container>
-                  <Grid item xs></Grid>
+                  <Grid item xs />
                   <Grid item>
                     <Link component={RouterLink} to="/" variant="body2">
                       {'Do you have an account? Login '}
@@ -206,21 +207,17 @@ const SignUpComponent = ({ signUserUp, userReducer }) => {
 SignUpComponent.propTypes = {
   userReducer: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    user: PropTypes.object.isRequired,
+    user: PropTypes.objectOf(PropTypes.object()).isRequired,
   }).isRequired,
 
   signUserUp: PropTypes.func.isRequired,
 };
-const mapStateToProps = (state) => {
-  return {
-    userReducer: state.userReducer,
-  };
-};
+const mapStateToProps = state => ({
+  userReducer: state.userReducer,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signUserUp: (userInfo) => dispatch(signUserUp(userInfo)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  signUserUp: userInfo => dispatch(signUserUp(userInfo)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpComponent);

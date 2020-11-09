@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchCar } from '../redux/actions/carActions';
-import AppointementForm from '../components/AppointementForm';
-import { bookAppointement } from '../redux/actions/appointementActions';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
+import { bookAppointement } from '../redux/actions/appointementActions';
+import AppointementForm from '../components/AppointementForm';
+import { fetchCar } from '../redux/actions/carActions';
 
 const Car = ({
   fetchCar,
@@ -26,7 +26,7 @@ const Car = ({
     <div>
       {userReducer.user.token ? (
         <Container className="car_cover">
-          {carReducer.cars.map((car) => (
+          {carReducer.cars.map(car => (
             <Grid container key={car.id} spacing={2} className="car_container">
               <Grid item sm={8}>
                 <img src={car.img_url} alt="car pic" className="img" />
@@ -35,14 +35,19 @@ const Car = ({
                 <h1 className="car_name">{car.name}</h1>
                 <div className="car_info">
                   <h3>
-                    <span>Price:</span> {car.price}M$
+                    <span>Price:</span>
+                    {' '}
+                    {car.price}
+                    M$
                   </h3>
                   <h3>
                     <span>Transmition: </span>
                     {car.transmition}
                   </h3>
                   <h3>
-                    <span>Duration:</span> {car.duration}
+                    <span>Duration:</span>
+                    {' '}
+                    {car.duration}
                   </h3>
                 </div>
 
@@ -69,21 +74,19 @@ Car.propTypes = {
   }).isRequired,
   userReducer: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    user: PropTypes.object.isRequired,
+    user: PropTypes.objectOf(PropTypes.object()).isRequired,
   }).isRequired,
-  appointementReducer: PropTypes.object.isRequired,
+  appointementReducer: PropTypes.objectOf(PropTypes.object()).isRequired,
 
   fetchCar: PropTypes.func.isRequired,
   bookAppointement: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    carReducer: state.carReducer,
-    userReducer: state.userReducer,
-    appointementReducer: state.appointementReducer,
-  };
-};
+const mapStateToProps = state => ({
+  carReducer: state.carReducer,
+  userReducer: state.userReducer,
+  appointementReducer: state.appointementReducer,
+});
 
 const mapDispatchToProps = {
   fetchCar,

@@ -12,18 +12,18 @@ const AppointementForm = ({
     city: '',
     date: '',
     time: '',
-    username: username,
+    username,
     car_id: carId,
   };
 
   const [appoiInfo, setAppoiInfo] = useState(appData);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
     setAppoiInfo({ ...appoiInfo, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     bookAppointement(appoiInfo);
   };
@@ -73,7 +73,7 @@ AppointementForm.propTypes = {
   username: PropTypes.string.isRequired,
   carId: PropTypes.string.isRequired,
   bookAppointement: PropTypes.func.isRequired,
-  appointementReducer: PropTypes.object.isRequired,
+  appointementReducer: PropTypes.objectOf(PropTypes.object()).isRequired,
 };
 
 export default AppointementForm;
