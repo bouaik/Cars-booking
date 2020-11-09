@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+<!--
+*** Thanks for checking out this README Template. If you have a suggestion that would
+*** make this better, please fork the repo and create a pull request or simply open
+*** an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
 
-## Available Scripts
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
-In the project directory, you can run:
+<!-- PROJECT LOGO -->
 
-### `yarn start`
+<br />
+<p align="center">
+  <a href="git@github.com:bouaik/Cars-booking.git">
+    <p align="center"> <img src="https://www.inovex.de/blog/wp-content/uploads/2022/01/one-year-of-react-native.png"alt="JavaScript" width="384" height="216"> </p>
+  </a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <h2 align="center">Cars Booking App, Elcaro</h2>
+  <h3 align="center"> This project is part of the Microverse curriculum in JavaScript module! </h3>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  <p align="center">
+    <a href="hhttps://github.com/bouaik/Cars-booking/issues">Report Bug</a>
+    · 
+    <a href="https://github.com/bouaik/Cars-booking/issues">Request Feature</a>
+  </p>
+</p>
 
-### `yarn test`
+<!-- TABLE OF CONTENTS -->
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Table of Contents
 
-### `yarn build`
+- [About the Project](#about-the-project)
+  - [Built With](#built-with)
+- [Contact](#Authors)
+- [Acknowledgements](#acknowledgements)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- ABOUT THE PROJECT -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## About The Project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Elcaro is a platform for booking cars.
 
-### `yarn eject`
+### Standout Feature:-
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Screenshot from 2020-11-09 13-10-47](https://user-images.githubusercontent.com/45256093/98539738-20be2f00-228d-11eb-84da-9c909211d44e.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Live Link
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[Click Here](https://cars-booking.herokuapp.com/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Back End repo
 
-## Learn More
+[Click Here](https://github.com/bouaik/Cars-booking-api)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- BUILD WITH -->
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Built With
 
-### Code Splitting
+This project was built using these technologies.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- React
+- Proptypes
+- Node.js
+- React-DOM
+- React-Create-App
+- Redux
+- npm
+- CSS
+- ES6
+- Rails api for backend
 
-### Analyzing the Bundle Size
+### Install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To run the Cars-booking app locally, clone the repository, navigate to it's containing directory.
 
-### Making a Progressive Web App
+#### Follow these commands step by step:-
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+git clone https://github.com/bouaik/Cars-booking.git
+cd Cars-booking
+yarn
+yarn start
+```
 
-### Advanced Configuration
+then go to this url
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+http://localhost:3000/
+```
 
-### Deployment
+To run tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+yarn test
+```
 
-### `yarn build` fails to minify
+Now you can successfully open the app locally in your browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- CONTACT -->
+
+## Authors
+
+👤 **Lhoussaine Bouaik**
+
+- [LinkedIn](https://www.linkedin.com/in/lhoussainebouaik)
+- [GitHub](https://github.com/bouaik)
+- [Email](bouaik.lhou@gmail.com)
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/bouaik/Cars-booking.svg?style=flat-square
+[contributors-url]: https://github.com/bouaik/Cars-booking/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/bouaik/Cars-booking.svg?style=flat-square
+[forks-url]: https://github.com/jbouaik/Cars-booking/network/members
+[stars-shield]: https://img.shields.io/github/stars/bouaik/Cars-booking.svg?style=flat-square
+[stars-url]: https://github.com/bouaik/Cars-booking/stargazers
+[issues-shield]: https://img.shields.io/github/issues/bouaik/Cars-booking.svg?style=flat-square
+[issues-url]: https://github.com/bouaik/Cars-booking/issues
+
+## 📝 License
+
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.
