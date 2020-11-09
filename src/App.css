@@ -94,6 +94,7 @@
 .dashboard_cover a {
   color: #fff;
 }
+
 .dashboard_cover .welcome {
   margin: 40px 0;
   text-align: center;
@@ -111,9 +112,11 @@
 .img {
   width: 100%;
 }
+
 .car_cover {
   margin-top: 40px;
 }
+
 .car_container {
   height: 80vh;
 }
@@ -143,17 +146,19 @@
 .appointement_container {
   margin-top: 50px;
 }
-.car_container .appointement_title {
+
+.appointement_title {
   text-align: center;
   margin: 10px 0;
 }
 
-.car_container form input {
+form .app_input {
   width: 100%;
   margin: 10px 0;
   padding: 7px;
 }
-.car_container .submit_btn {
+
+.submit_btn {
   background-color: rgb(19, 204, 19);
   border: none;
   outline: none;
@@ -163,6 +168,6 @@
   cursor: pointer;
 }
 
-.car_container .submit_btn:hover {
+.submit_btn:hover {
   background-color: rgb(12, 138, 12);
 }

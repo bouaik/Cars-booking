@@ -49,11 +49,21 @@ const AppointementForm = ({
           onChange={handleChange}
         />
         <br />
-        <input type="date" name="date" onChange={handleChange} />
+        <input
+          type="date"
+          name="date"
+          onChange={handleChange}
+          className="app_input"
+        />
         <br />
-        <input type="time" name="time" onChange={handleChange} />
+        <input
+          type="time"
+          name="time"
+          onChange={handleChange}
+          className="app_input"
+        />
         <br />
-        <input type="submit" className="submit_btn" />
+        <input type="submit" className="app_input submit_btn" />
       </form>
     </div>
   );
