@@ -10,6 +10,7 @@ import Appointements from './containers/Appointements';
 import LoginComponent from './containers/LoginComponent';
 import SignUpComponent from './containers/SignUpComponent';
 import PropTypes from 'prop-types';
+import CircularIndeterminate from './components/Loading';
 
 const App = ({ userReducer, autoLogin }) => {
   useEffect(() => {
@@ -20,7 +21,7 @@ const App = ({ userReducer, autoLogin }) => {
     <div className="App">
       <BrowserRouter>
         {userReducer.loading ? (
-          <h1>Loading ...</h1>
+          <CircularIndeterminate />
         ) : (
           <div>
             {userReducer.user && userReducer.user.token ? <Nav /> : null}
@@ -57,7 +58,6 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  // console.log(state.userReducer);
   return {
     userReducer: state.userReducer,
   };
