@@ -21,7 +21,7 @@ export const fetchAppointements = username => dispatch => {
     });
 };
 
-export const bookAppointement = appointementInfo => dispatch => {
+export const bookAppointement = appointementInfo => () => {
   fetch(`${API_ROOT}/appointements`, {
     method: 'POST',
     headers: {
@@ -30,9 +30,5 @@ export const bookAppointement = appointementInfo => dispatch => {
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
     body: JSON.stringify(appointementInfo),
-  })
-    .then(res => res.json())
-    .then(data => {
-      dispatch(fetchAppointementsRequest(data));
-    });
+  });
 };
