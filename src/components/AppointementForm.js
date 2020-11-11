@@ -47,6 +47,7 @@ const AppointementForm = ({
           type="text"
           name="city"
           onChange={handleChange}
+          className="app_input"
         />
         <br />
         <input
