@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ShowAppointement = ({ appointementReducer }) => {
+const ShowAppointement = ({ appointementReducer: { appointements } }) => {
   const classes = useStyles();
 
   const hadnleTime = a => {
@@ -37,13 +37,15 @@ const ShowAppointement = ({ appointementReducer }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {appointementReducer.appointements.map(appointement => (
+            {appointements.map(appointement => (
               <TableRow key={appointement.id}>
-                <TableCell component="th" scope="row">
+                <TableCell data-testid="city_name" component="th" scope="row">
                   {appointement.city}
                 </TableCell>
-                <TableCell align="right">{appointement.date}</TableCell>
-                <TableCell align="right">
+                <TableCell align="right" data-testid="date">
+                  {appointement.date}
+                </TableCell>
+                <TableCell align="right" data-testid="time">
                   {hadnleTime(appointement.time)}
                 </TableCell>
               </TableRow>
