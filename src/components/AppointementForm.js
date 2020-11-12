@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import Alert from '@material-ui/lab/Alert';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 
 const AppointementForm = ({
   username,
   bookAppointement,
   carId,
   appointementReducer,
+  history,
 }) => {
   const appData = {
     city: '',
@@ -26,6 +28,7 @@ const AppointementForm = ({
   const handleSubmit = e => {
     e.preventDefault();
     bookAppointement(appoiInfo);
+    history.push('/appointements');
   };
 
   return (
@@ -74,7 +77,9 @@ AppointementForm.propTypes = {
   username: PropTypes.string.isRequired,
   carId: PropTypes.string.isRequired,
   bookAppointement: PropTypes.func.isRequired,
+  history: PropTypes.oneOfType([PropTypes.object]).isRequired,
   appointementReducer: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
-export default AppointementForm;
+// export default AppointementForm;
+export default withRouter(AppointementForm);
